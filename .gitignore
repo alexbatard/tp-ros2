@@ -30,3 +30,8 @@
 *.exe
 *.out
 *.app
+
+devel/
+logs/
+log/
+install/
