@@ -210,6 +210,19 @@ nodeA/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/nodeA.dir/build.make CMakeFiles/nodeA.dir/build
 .PHONY : nodeA/fast
 
+#=============================================================================
+# Target rules for targets named nodeB
+
+# Build rule for target.
+nodeB: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 nodeB
+.PHONY : nodeB
+
+# fast build rule for target.
+nodeB/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/nodeB.dir/build.make CMakeFiles/nodeB.dir/build
+.PHONY : nodeB/fast
+
 src/main_nodeA.o: src/main_nodeA.cpp.o
 .PHONY : src/main_nodeA.o
 
@@ -234,6 +247,30 @@ src/main_nodeA.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/nodeA.dir/build.make CMakeFiles/nodeA.dir/src/main_nodeA.cpp.s
 .PHONY : src/main_nodeA.cpp.s
 
+src/main_nodeB.o: src/main_nodeB.cpp.o
+.PHONY : src/main_nodeB.o
+
+# target to build an object file
+src/main_nodeB.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/nodeB.dir/build.make CMakeFiles/nodeB.dir/src/main_nodeB.cpp.o
+.PHONY : src/main_nodeB.cpp.o
+
+src/main_nodeB.i: src/main_nodeB.cpp.i
+.PHONY : src/main_nodeB.i
+
+# target to preprocess a source file
+src/main_nodeB.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/nodeB.dir/build.make CMakeFiles/nodeB.dir/src/main_nodeB.cpp.i
+.PHONY : src/main_nodeB.cpp.i
+
+src/main_nodeB.s: src/main_nodeB.cpp.s
+.PHONY : src/main_nodeB.s
+
+# target to generate assembly for a file
+src/main_nodeB.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/nodeB.dir/build.make CMakeFiles/nodeB.dir/src/main_nodeB.cpp.s
+.PHONY : src/main_nodeB.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -250,9 +287,13 @@ help:
 	@echo "... tp1_uninstall"
 	@echo "... uninstall"
 	@echo "... nodeA"
+	@echo "... nodeB"
 	@echo "... src/main_nodeA.o"
 	@echo "... src/main_nodeA.i"
 	@echo "... src/main_nodeA.s"
+	@echo "... src/main_nodeB.o"
+	@echo "... src/main_nodeB.i"
+	@echo "... src/main_nodeB.s"
 .PHONY : help
 
 

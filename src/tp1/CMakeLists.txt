@@ -17,6 +17,13 @@ target_include_directories(nodeA PUBLIC
 $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
 $<INSTALL_INTERFACE:include>)
 
+add_executable(nodeB src/main_nodeB.cpp)
+ament_target_dependencies(nodeB rclcpp std_msgs)
+target_link_libraries(nodeB "${cpp_typesupport_target}")
+target_include_directories(nodeB PUBLIC
+$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+$<INSTALL_INTERFACE:include>)
+
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
   # the following line skips the linter which checks for copyrights
@@ -30,6 +37,9 @@ if(BUILD_TESTING)
 endif()
 
 install(TARGETS nodeA
+DESTINATION lib/${PROJECT_NAME})
+
+install(TARGETS nodeB
 DESTINATION lib/${PROJECT_NAME})
 
 ament_package()

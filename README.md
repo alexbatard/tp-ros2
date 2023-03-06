@@ -179,3 +179,22 @@ ros2 run tp1 nodeA
 [INFO] [1677685706.070969665] [minimal_publisher]: Publishing: '20.633511'
 ```
 
+### Question 11
+
+```
+ros2 run tp1 nodeA
+[INFO] [1677744980.012640654] [minimal_publisher]: Publishing: '-41.114586'
+[INFO] [1677744980.512725660] [minimal_publisher]: Publishing: '-27.308798'
+[INFO] [1677744981.012821161] [minimal_publisher]: Publishing: '-6.814249'
+[INFO] [1677744981.512742550] [minimal_publisher]: Publishing: '15.341908'
+
+ros2 run tp1 nodeB
+[INFO] [1677744980.013388362] [minimal_subscriber]: I heard: '-41.114586'
+[INFO] [1677744980.513306334] [minimal_subscriber]: I heard: '-27.308798'
+[INFO] [1677744981.013496646] [minimal_subscriber]: I heard: '-6.814249'
+[INFO] [1677744981.513414400] [minimal_subscriber]: I heard: '15.341908'
+```
+
+### Question 12
+
+```
