@@ -197,4 +197,19 @@ ros2 run tp1 nodeB
 
 ### Question 12
 
+The service has been added to node A
+
+### Question 13
+
+```
+ros2 service call /boat_info std_srvs/srv/Trigger
+waiting for service to become available...
+requester: making request: std_srvs.srv.Trigger_Request()
+
+response:
+std_srvs.srv.Trigger_Response(success=True, message='Boat name')
+```
+
+### Question 14
+
 ```

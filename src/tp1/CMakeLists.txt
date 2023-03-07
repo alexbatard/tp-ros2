@@ -9,16 +9,17 @@ endif()
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(std_msgs REQUIRED)
+find_package(std_srvs REQUIRED)
 
 add_executable(nodeA src/main_nodeA.cpp)
-ament_target_dependencies(nodeA rclcpp std_msgs)
+ament_target_dependencies(nodeA rclcpp std_msgs std_srvs)
 target_link_libraries(nodeA "${cpp_typesupport_target}")
 target_include_directories(nodeA PUBLIC
 $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
 $<INSTALL_INTERFACE:include>)
 
 add_executable(nodeB src/main_nodeB.cpp)
-ament_target_dependencies(nodeB rclcpp std_msgs)
+ament_target_dependencies(nodeB rclcpp std_msgs std_srvs)
 target_link_libraries(nodeB "${cpp_typesupport_target}")
 target_include_directories(nodeB PUBLIC
 $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
