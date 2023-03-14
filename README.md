@@ -213,3 +213,12 @@ std_srvs.srv.Trigger_Response(success=True, message='Boat name')
 ### Question 14
 
 ```
+[INFO] [1678795552.867029327] [rclcpp]: Boat info: name: DD Boat 1, motor state: on
+```
+
+
+## TP2
+
+### Question 1
+
+```

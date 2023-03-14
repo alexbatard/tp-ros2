@@ -10,6 +10,8 @@
 // include each message type you want to use
 
 using namespace std::chrono_literals;
+using std::placeholders::_1;
+using std::placeholders::_2;
 
 /*
  * Classe qui hérite de l'objet rclcpp::Node.
@@ -28,7 +30,7 @@ public:
         // Créer un timer qui appelle la fonction time_callback toutes les 500ms
         timer_ = this->create_wall_timer(500ms, std::bind(&MinimalPublisher::timer_callback, this));
         // À noter qu'il existe plusieurs base de temps possible
-        service_ = this->create_service<std_srvs::srv::Trigger>("boat_info", std::bind(&MinimalPublisher::handle_service_request, this, std::placeholders::_1, std::placeholders::_2));
+        service_ = this->create_service<std_srvs::srv::Trigger>("boat_info", std::bind(&MinimalPublisher::handle_service_request, this, _1, _2));
     }
 
 private:
@@ -51,10 +53,8 @@ private:
     void handle_service_request(const std::shared_ptr<std_srvs::srv::Trigger::Request> request,
                                 const std::shared_ptr<std_srvs::srv::Trigger::Response> response)
     {
-        response->success = true;
-        response->message = "Boat name";
-
         RCLCPP_INFO(this->get_logger(), "Incoming request");
+        response->message = "name: DD Boat 1, motor state: on";
     }
     rclcpp::TimerBase::SharedPtr timer_;                             // objet timer
     rclcpp::Publisher<std_msgs::msg::Float64>::SharedPtr publisher_; // objet publisher
