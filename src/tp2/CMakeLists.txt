@@ -12,6 +12,14 @@ find_package(example_interfaces REQUIRED)
 find_package(tf2 REQUIRED)
 find_package(geometry_msgs REQUIRED)
 find_package(tf2_geometry_msgs REQUIRED)
+find_package(visualization_msgs REQUIRED)
+
+add_executable(nodeBoatSim src/main_nodeBoatSim.cpp)
+ament_target_dependencies(nodeBoatSim rclcpp example_interfaces tf2 geometry_msgs tf2_geometry_msgs visualization_msgs)
+target_link_libraries(nodeBoatSim "${cpp_typesupport_target}")
+target_include_directories(nodeBoatSim PUBLIC
+$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+$<INSTALL_INTERFACE:include>)
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
@@ -24,5 +32,18 @@ if(BUILD_TESTING)
   set(ament_cmake_cpplint_FOUND TRUE)
   ament_lint_auto_find_test_dependencies()
 endif()
+
+install(TARGETS nodeBoatSim
+DESTINATION lib/${PROJECT_NAME})
+
+install(DIRECTORY launch
+DESTINATION share/${PROJECT_NAME}/
+)
+
+install(DIRECTORY config
+DESTINATION share/${PROJECT_NAME}/)
+
+install(DIRECTORY meshes
+DESTINATION share/${PROJECT_NAME}/)
 
 ament_package()

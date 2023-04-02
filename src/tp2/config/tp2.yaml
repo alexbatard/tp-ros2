@@ -1,0 +1,6 @@
+nodeBoatSim:
+  ros__parameters:
+    x0: 0.0
+    y0: 0.0
+    theta0: 0.0
+    info: "initial boat position"
